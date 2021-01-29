@@ -1,0 +1,21 @@
+{
+  "payment": [
+    {
+      "cardNumber": "09890809",
+      "cardHolderName": "KSJALK",
+      "expDate": "2021-01-29",
+      "cvvNumber": "123",
+      "amount": 321321,
+      "type": "[Credit Card Component] Post credit card load",
+      "id": 1
+    },
+    {
+      "cardNumber": "32981028",
+      "cardHolderName": "3928098",
+      "expDate": "2021-01-28",
+      "cvvNumber": "322",
+      "amount": 3213,
+      "id": 2
+    }
+  ]
+}

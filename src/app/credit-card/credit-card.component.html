@@ -1,0 +1,44 @@
+<form [formGroup]="paymentForm" #f="ngForm" (ngSubmit)="submitPayment()">
+  <div class="form-group">
+    <label for="cardNumber">Card Number</label>
+    <input numbersOnly type="text" id="cardNumber" class="form-control" formControlName="cardNumber">
+    <div *ngIf="hasError(f,'cardNumber')" class="alert">
+      Card Number is required
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="cardHolderName">Card Holder Name</label>
+    <input type="text" id="cardHolderName" class="form-control" formControlName="cardHolderName">
+    <div *ngIf="hasError(f,'cardHolderName')" class="alert">
+      Card Holder Name is required
+    </div>
+  </div>
+  <div class="d-flex ">
+    <div class="form-group w-100 mr-4">
+      <label for="expDate">Expiry Date</label>
+      <input min="{{today}}" type="date" id="expDate" class="form-control" formControlName="expDate">
+      <div *ngIf="hasError(f,'expDate')" class="alert">
+        Expiry Date is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cvvNumber">CVV Number</label>
+      <input numbersOnly maxLength="3" minLength="3" type="password" id="cvvNumber" class="form-control" formControlName="cvvNumber">
+      <div *ngIf="(f.submitted && this.paymentForm.get('cvvNumber')?.invalid)" class="alert">
+        CVV should be three digits
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input min="0" type="number" id="amount" class="form-control" formControlName="amount">
+    <div *ngIf="hasError(f,'amount')" class="alert">
+      Amount is required and should be positive
+    </div>
+  </div>
+  <div><button class="btn btn-primary w-100">Submit</button></div>
+</form>
